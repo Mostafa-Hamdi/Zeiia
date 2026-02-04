@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const inter = Inter({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
@@ -51,9 +45,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${playfair.variable} ${inter.variable} antialiased`}>
-        {children}
-      </body>
+      <body className={`${bricolage.variable} antialiased`}>{children}</body>
     </html>
   );
 }
