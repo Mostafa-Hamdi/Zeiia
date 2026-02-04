@@ -827,7 +827,7 @@ export default function ServicesPage() {
             {pricingPlans.map((plan, idx) => (
               <div
                 key={idx}
-                className={`pricing-card group relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border ${
+                className={`pricing-card group flex flex-column relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border ${
                   plan.highlighted
                     ? "border-[#4a9d9c] scale-105"
                     : "border-white/10"
@@ -851,7 +851,7 @@ export default function ServicesPage() {
                   <div className="text-slate-500 text-sm">{plan.duration}</div>
                 </div>
 
-                <div className="space-y-3 mb-8">
+                <div className="space-y-3 mb-8 flex-1">
                   {plan.features.map((feature, fIdx) => (
                     <div
                       key={fIdx}
