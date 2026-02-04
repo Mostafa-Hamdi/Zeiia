@@ -839,14 +839,14 @@ export default function Home() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="scroll-indicator absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+        {/* <div className="scroll-indicator absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
           <span className="text-sm text-slate-400 uppercase tracking-widest font-semibold">
             Scroll
           </span>
           <div className="w-6 h-10 border-2 border-slate-400 rounded-full flex justify-center p-1.5">
             <div className="w-1.5 h-3 bg-linear-to-b from-[#4a9d9c] to-[#c4a962] rounded-full animate-bounce" />
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* Stats Section */}
