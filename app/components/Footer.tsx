@@ -1,97 +1,149 @@
-"use client";
-
-export default function Footer() {
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import logo from "@/public/logo.png";
+const Footer = () => {
   return (
-    <footer className="bg-card border-t border-border py-16" id="footer">
-      <div className="container-custom">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div>
-            <div className="font-display text-3xl font-bold mb-4">
-              <span className="gradient-text">Zeiia</span>
+    <footer className="relative border-t border-white/5 py-16 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div className="lg:col-span-1">
+            <div className="mb-6">
+              <Image
+                src={logo}
+                alt="Zeiia Logo"
+                width={300}
+                height={100}
+                className="h-[70px] w-auto"
+              />
             </div>
-            <p className="text-muted-foreground text-sm">
-              Enterprise software solutions that drive digital transformation
+            <p className="text-slate-400 mb-6 leading-relaxed">
+              Premium software solutions crafted with precision, delivered with
+              excellence.
             </p>
           </div>
+
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h4 className="font-bold mb-4 text-lg">Quick Links</h4>
+            <ul className="space-y-3 text-slate-400">
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  eCommerce
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Custom Development
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  WordPress
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  CRM Solutions
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Connect</h4>
-            <div className="flex space-x-4">
-              {["LinkedIn", "Twitter", "GitHub"].map((social) => (
-                <a
-                  key={social}
-                  href="#"
-                  className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:bg-primary/10 transition-all"
+                <Link
+                  href="/"
+                  className="hover:text-[#4a9d9c] transition-colors"
                 >
-                  <span className="sr-only">{social}</span>
-                  <svg
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0z" />
-                  </svg>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-[#4a9d9c] transition-colors"
+                >
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/portfolio"
+                  className="hover:text-[#4a9d9c] transition-colors"
+                >
+                  Portfolio
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-[#4a9d9c] transition-colors"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-[#4a9d9c] transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold mb-4 text-lg">Services</h4>
+            <ul className="space-y-3 text-slate-400">
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-[#4a9d9c] transition-colors"
+                >
+                  Custom Development
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-[#4a9d9c] transition-colors"
+                >
+                  E-Commerce
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-[#4a9d9c] transition-colors"
+                >
+                  Web Applications
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-[#4a9d9c] transition-colors"
+                >
+                  Mobile Apps
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold mb-4 text-lg">Contact</h4>
+            <ul className="space-y-3 text-slate-400">
+              <li>
+                <a
+                  href="mailto:info@zeiia.com"
+                  className="hover:text-[#4a9d9c] transition-colors"
+                >
+                  info@zeiia.com
                 </a>
-              ))}
-            </div>
+              </li>
+              <li>
+                <a
+                  href="tel:+15551234567"
+                  className="hover:text-[#4a9d9c] transition-colors"
+                >
+                  +1 (555) 123-4567
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>
-            &copy; 2026 Zeiia. All rights reserved. Enterprise Software
-            Solutions.
-          </p>
+
+        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
+          <p>© 2026 Zeiia. All rights reserved.</p>
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-white transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              Terms of Service
+            </a>
+          </div>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

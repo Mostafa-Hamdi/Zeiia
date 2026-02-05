@@ -3,11 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/logo.jpeg";
+import logo from "@/public/logo.png";
 
 // Import GSAP
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Header from "../components/Header";
 
 export default function PortfolioPage() {
   const [mounted, setMounted] = useState(false);
@@ -525,59 +526,6 @@ export default function PortfolioPage() {
         <div className="parallax-orb-2 absolute top-60 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#c4a962]/20 to-[#4a9d9c]/20 rounded-full blur-3xl" />
       </div>
 
-      {/* Navigation */}
-      <nav className="navbar fixed top-0 w-full z-50 backdrop-blur-2xl bg-[#0a0f1a]/80 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4">
-          <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center">
-              <Image
-                src={logo}
-                alt="Zeiia Logo"
-                width={150}
-                height={50}
-                className="h-12 w-auto"
-              />
-            </Link>
-
-            <div className="hidden lg:flex items-center gap-10 text-sm font-medium">
-              <Link
-                href="/"
-                className="text-slate-300 hover:text-[#4a9d9c] transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/services"
-                className="text-slate-300 hover:text-[#4a9d9c] transition-colors"
-              >
-                Services
-              </Link>
-              <Link
-                href="/portfolio"
-                className="text-[#4a9d9c] font-bold relative group"
-              >
-                Portfolio
-                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#4a9d9c] to-[#c4a962]" />
-              </Link>
-              <Link
-                href="/#contact"
-                className="text-slate-300 hover:text-[#4a9d9c] transition-colors"
-              >
-                Contact
-              </Link>
-            </div>
-
-            <Link
-              href="/#contact"
-              className="px-8 py-3 bg-gradient-to-r from-[#4a9d9c] to-[#c4a962] rounded-full text-sm font-bold hover:shadow-2xl hover:shadow-[#4a9d9c]/50 transition-all hover:scale-105 relative overflow-hidden group"
-            >
-              <span className="relative z-10">Get Started</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#c4a962] to-[#4a9d9c] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </Link>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center px-6 pt-32">
         <div className="max-w-5xl mx-auto text-center relative z-10">
@@ -846,139 +794,6 @@ export default function PortfolioPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="relative border-t border-white/5 py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-            <div className="lg:col-span-1">
-              <div className="mb-6">
-                <Image
-                  src={logo}
-                  alt="Zeiia Logo"
-                  width={150}
-                  height={50}
-                  className="h-12 w-auto"
-                />
-              </div>
-              <p className="text-slate-400 mb-6 leading-relaxed">
-                Premium software solutions crafted with precision, delivered
-                with excellence.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4 text-lg">Quick Links</h4>
-              <ul className="space-y-3 text-slate-400">
-                <li>
-                  <Link
-                    href="/"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/portfolio"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    Portfolio
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/#contact"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4 text-lg">Services</h4>
-              <ul className="space-y-3 text-slate-400">
-                <li>
-                  <Link
-                    href="/services"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    Custom Development
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    E-Commerce
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    Web Applications
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    Mobile Apps
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4 text-lg">Contact</h4>
-              <ul className="space-y-3 text-slate-400">
-                <li>
-                  <a
-                    href="mailto:info@zeiia.com"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    info@zeiia.com
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="tel:+15551234567"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    +1 (555) 123-4567
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
-            <p>© 2026 Zeiia. All rights reserved.</p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:text-white transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Terms of Service
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

@@ -4,7 +4,22 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import logo from "@/public/logo.jpeg";
+import asia from "@/public/asia.webp";
+import ecomarketing from "@/public/ecomarketing.webp";
+import newtoptrade from "@/public/newtoptrade.webp";
+import tavan from "@/public/tavan.avif";
+import saqr from "@/public/saqr.webp";
+import kreaz from "@/public/kreaz.webp";
+import aura from "@/public/aura.png";
+import auraScreen from "@/public/auraScreen.png";
+import kreazScreen from "@/public/kreaz-screen.jpg";
+import asiaScreen from "@/public/asiaScreen.png";
+import tavanScreen from "@/public/tavanScreen.png";
+import ecoMarketingScreen from "@/public/ecoMarketingScreen.png";
+import saqrScreen from "@/public/saqrScreen.jpg";
+import Marquee from "react-fast-marquee";
+import Link from "next/link";
+
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   const mainRef = useRef<HTMLDivElement>(null);
@@ -161,18 +176,6 @@ export default function Home() {
         });
       },
     });
-
-    // Marquee continuous animation
-    const marqueeContent = document.querySelector(".marquee-content");
-    if (marqueeContent) {
-      const marqueeWidth = marqueeContent.scrollWidth / 2;
-      gsap.to(".marquee-content", {
-        x: -marqueeWidth,
-        duration: 30,
-        repeat: -1,
-        ease: "none",
-      });
-    }
 
     // Services Cards - Random Stagger
     ScrollTrigger.create({
@@ -591,73 +594,59 @@ export default function Home() {
 
   const portfolio = [
     {
-      name: "Enterprise Commerce Platform",
-      tech: "Shopify & Custom Backend",
+      name: "Kreaz E-Commerce Platform",
+      tech: "Woocommerce & Custom Dev",
       description:
-        "Multi-million dollar e-commerce platform with advanced inventory management",
-      image: "/projects/project1.jpg",
-      link: "#",
+        "Kreaz Store specializes in premium cakes, gateaux, baked goods, oriental sweets, fine chocolates, and handcrafted beverages.",
+      image: kreazScreen,
+      link: "https://kreazdesserts.com/",
       gradient: "from-[#4a9d9c] to-[#5ebcbb]",
     },
     {
-      name: "Financial Analytics Dashboard",
-      tech: "React & Node.js",
+      name: "Aura CRM System",
+      tech: "Next.js & .NET Core",
       description:
-        "Real-time financial data visualization with predictive analytics",
-      image: "/projects/project2.jpg",
-      link: "#",
+        "Our proprietary CRM platform designed for seamless customer management and growth.",
+      image: auraScreen,
+      link: "https://auracrm-pi.vercel.app",
       gradient: "from-[#c4a962] to-[#d4b972]",
     },
     {
-      name: "Healthcare Management System",
-      tech: "Custom Solution",
+      name: "Asia Healthcare Store",
+      tech: "WooCommerce & Custom Dev",
       description:
-        "HIPAA-compliant patient management and telemedicine platform",
-      image: "/projects/project3.jpg",
-      link: "#",
+        "Asia Healthcare is a leading online retailer of health and wellness products, committed to providing quality solutions for a healthier lifestyle.",
+      image: asiaScreen,
+      link: "https://asiaegy.com/",
       gradient: "from-[#4a9d9c] to-[#c4a962]",
     },
     {
-      name: "Luxury Retail Store",
-      tech: "WordPress & WooCommerce",
-      description: "High-conversion luxury retail experience with AR features",
-      image: "/projects/project4.jpg",
-      link: "#",
+      name: "Tavan Gallery",
+      tech: "Shopify & Custom Dev",
+      description:
+        "Tavan Gallery is a premier online destination for exquisite art pieces, offering a curated selection of contemporary and classic artworks to elevate any space.",
+      image: tavanScreen,
+      link: "https://tavangallery.com/en",
       gradient: "from-[#5ebcbb] to-[#4a9d9c]",
     },
     {
-      name: "SaaS Project Management",
-      tech: "Next.js & PostgreSQL",
+      name: "EcoMarketing",
+      tech: "WordPress & Custom Dev",
       description:
-        "Enterprise-grade project management with AI-powered insights",
-      image: "/projects/project5.jpg",
-      link: "#",
+        "A high-conversion marketing platform blending custom development with WordPress for peak performance and scalability.",
+      image: ecoMarketingScreen,
+      link: "https://ecoperformancemarketing.com/",
       gradient: "from-[#d4b972] to-[#c4a962]",
     },
     {
-      name: "Supply Chain Platform",
+      name: "Saqr Sahraan E-Commerce",
       tech: "Custom Build",
       description:
-        "End-to-end supply chain optimization with blockchain tracking",
-      image: "/projects/project6.jpg",
-      link: "#",
+        "Wordpress-based e-commerce platform for Saqr Sahraan, a leading retailer of premium outdoor and camping gear in the Middle East, offering a wide range of high-quality products for outdoor enthusiasts.",
+      image: saqrScreen,
+      link: "https://www.d-falcon.com/",
       gradient: "from-[#4a9d9c]/80 to-[#c4a962]/80",
     },
-  ];
-
-  const brands = [
-    "TechCorp Global",
-    "Innovation Labs",
-    "Digital Dynamics",
-    "NextGen Solutions",
-    "CloudFirst Inc",
-    "DataStream Pro",
-    "SmartRetail Co",
-    "FinanceHub",
-    "HealthTech Plus",
-    "EduSystems",
-    "LogiChain Partners",
-    "Alpha Ventures",
   ];
 
   const benefits = [
@@ -730,62 +719,6 @@ export default function Home() {
         <div className="parallax-orb-2 absolute top-60 right-0 w-125 h-125 bg-linear-to-br from-[#c4a962]/20 to-[#4a9d9c]/20 rounded-full blur-3xl" />
         <div className="parallax-orb-3 absolute bottom-0 left-1/3 w-96 h-96 bg-linear-to-br from-[#4a9d9c]/20 to-[#c4a962]/20 rounded-full blur-3xl" />
       </div>
-
-      {/* Navigation */}
-      <nav className="navbar fixed top-0 w-full z-50 backdrop-blur-2xl bg-[#0a0f1a]/80 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center hero-logo">
-              <Image
-                src={logo}
-                alt="Zeiia Logo"
-                width={150}
-                height={50}
-                className="h-12 w-auto"
-              />
-            </div>
-
-            <div className="hidden lg:flex items-center gap-10 text-sm font-medium">
-              <a
-                href="#services"
-                className="text-slate-300 hover:text-[#4a9d9c] transition-colors relative group"
-              >
-                Services
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-[#4a9d9c] to-[#c4a962] group-hover:w-full transition-all duration-300" />
-              </a>
-              <a
-                href="#portfolio"
-                className="text-slate-300 hover:text-[#4a9d9c] transition-colors relative group"
-              >
-                Portfolio
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-[#4a9d9c] to-[#c4a962] group-hover:w-full transition-all duration-300" />
-              </a>
-              <a
-                href="#why-us"
-                className="text-slate-300 hover:text-[#4a9d9c] transition-colors relative group"
-              >
-                Why Us
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-[#4a9d9c] to-[#c4a962] group-hover:w-full transition-all duration-300" />
-              </a>
-              <a
-                href="#contact"
-                className="text-slate-300 hover:text-[#4a9d9c] transition-colors relative group"
-              >
-                Contact
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-[#4a9d9c] to-[#c4a962] group-hover:w-full transition-all duration-300" />
-              </a>
-            </div>
-
-            <a
-              href="#contact"
-              className="px-8 py-3 bg-linear-to-r from-[#4a9d9c] to-[#c4a962] rounded-full text-sm font-bold hover:shadow-2xl hover:shadow-[#4a9d9c]/50 transition-all hover:scale-105 relative overflow-hidden group"
-            >
-              <span className="relative z-10">Let's Talk</span>
-              <div className="absolute inset-0 bg-linear-to-r from-[#c4a962] to-[#4a9d9c] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </a>
-          </div>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-6 pt-32 pb-20">
@@ -909,18 +842,22 @@ export default function Home() {
           </p>
         </div>
         <div className="relative">
-          <div className="marquee-content flex gap-16 whitespace-nowrap">
-            {[...brands, ...brands].map((brand, idx) => (
-              <div
-                key={idx}
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-[#4a9d9c]/50 transition-all"
-              >
-                <span className="text-slate-300 font-bold text-lg whitespace-nowrap">
-                  {brand}
-                </span>
-              </div>
-            ))}
-          </div>
+          <Marquee speed={50} gradient={false} pauseOnHover>
+            {[asia, aura, tavan, ecomarketing, newtoptrade, saqr, kreaz].map(
+              (logo, i) => (
+                <div key={i} className="mx-10">
+                  <div className="inline-flex items-center self-stretch h-[170px] justify-center px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-[#4a9d9c]/50 transition-all">
+                    <Image
+                      src={logo}
+                      alt="Brand Logo"
+                      width={150}
+                      height={50}
+                    />
+                  </div>
+                </div>
+              ),
+            )}
+          </Marquee>
         </div>
       </section>
 
@@ -993,33 +930,34 @@ export default function Home() {
             style={{ perspective: "1000px" }}
           >
             {portfolio.map((project, idx) => (
-              <a
+              <Link
                 key={idx}
                 href={project.link}
-                className="portfolio-card group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden"
+                target="_blank"
+                className="portfolio-card flex flex-column group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl "
                 style={{ transformStyle: "preserve-3d" }}
               >
                 {/* Project Image */}
-                <div className="relative h-64 overflow-hidden">
-                  <div
-                    className={`portfolio-image absolute inset-0 bg-linear-to-br ${project.gradient}`}
-                  >
-                    <div className="w-full h-full flex items-center justify-center text-8xl text-white/30 font-black">
-                      {idx + 1}
-                    </div>
+                <div className="relative h-64 overflow-hidden rounded-t-2xl">
+                  <div className="portfolio-image h-full w-full">
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                  <div className="portfolio-overlay absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent opacity-0 transition-opacity duration-500" />
                 </div>
 
                 {/* Project Info */}
-                <div className="relative p-8">
+                <div className="relative p-8 flex flex-col flex-1">
                   <div className="text-xs text-[#4a9d9c] uppercase tracking-widest font-bold mb-3">
                     {project.tech}
                   </div>
                   <h3 className="text-2xl font-bold mb-3 group-hover:text-transparent group-hover:bg-linear-to-r group-hover:from-[#4a9d9c] group-hover:to-[#c4a962] group-hover:bg-clip-text transition-all">
                     {project.name}
                   </h3>
-                  <p className="text-slate-400 mb-6 leading-relaxed">
+                  <p className="text-slate-400 mb-6 leading-relaxed flex-1">
                     {project.description}
                   </p>
                   <div className="flex items-center gap-2 text-[#c4a962] group-hover:text-[#4a9d9c] transition-all">
@@ -1029,7 +967,7 @@ export default function Home() {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -1286,167 +1224,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="relative border-t border-white/5 py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-            <div className="lg:col-span-2">
-              <div className="mb-6">
-                <Image
-                  src={logo}
-                  alt="Zeiia Logo"
-                  width={150}
-                  height={50}
-                  className="h-12 w-auto"
-                />
-              </div>
-              <p className="text-slate-400 max-w-sm mb-6 leading-relaxed">
-                Premium software solutions crafted with precision, delivered
-                with excellence.
-              </p>
-              <div className="flex gap-4">
-                <a
-                  href="#"
-                  className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-white/10 hover:border-[#4a9d9c]/50 transition-all hover:scale-110"
-                >
-                  <span className="text-sm font-bold">Li</span>
-                </a>
-                <a
-                  href="#"
-                  className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-white/10 hover:border-[#4a9d9c]/50 transition-all hover:scale-110"
-                >
-                  <span className="text-sm font-bold">Tw</span>
-                </a>
-                <a
-                  href="#"
-                  className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center hover:bg-white/10 hover:border-[#4a9d9c]/50 transition-all hover:scale-110"
-                >
-                  <span className="text-sm font-bold">Gh</span>
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4 text-lg">Services</h4>
-              <ul className="space-y-3 text-slate-400">
-                <li>
-                  <a
-                    href="#services"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    Custom Development
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    E-Commerce
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    Aura CRM
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    Support
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4 text-lg">Company</h4>
-              <ul className="space-y-3 text-slate-400">
-                <li>
-                  <a
-                    href="#portfolio"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    Portfolio
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/about"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    Contact
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/careers"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    Careers
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4 text-lg">Contact</h4>
-              <ul className="space-y-3 text-slate-400">
-                <li>
-                  <a
-                    href="mailto:info@zeiia.com"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    info@zeiia.com
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="tel:+15551234567"
-                    className="hover:text-[#4a9d9c] transition-colors"
-                  >
-                    +1 (555) 123-4567
-                  </a>
-                </li>
-                <li className="pt-2">
-                  <a
-                    href="#contact"
-                    className="text-[#4a9d9c] hover:text-[#c4a962] transition-colors font-semibold"
-                  >
-                    Get in Touch →
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
-            <p>© 2026 Zeiia. All rights reserved.</p>
-            <div className="flex gap-6">
-              <a href="/privacy" className="hover:text-white transition-colors">
-                Privacy Policy
-              </a>
-              <a href="/terms" className="hover:text-white transition-colors">
-                Terms of Service
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
