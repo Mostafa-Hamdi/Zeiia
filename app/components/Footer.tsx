@@ -72,38 +72,13 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4 text-lg">Services</h4>
             <ul className="space-y-3 text-slate-400">
+              <li>Custom Development</li>
+              <li>E-Commerce</li>
               <li>
-                <Link
-                  href="/services"
-                  className="hover:text-[#4a9d9c] transition-colors"
-                >
-                  Custom Development
-                </Link>
+                href="/services" className="hover:text-[#4a9d9c]
+                transition-colors" Web Applications
               </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="hover:text-[#4a9d9c] transition-colors"
-                >
-                  E-Commerce
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="hover:text-[#4a9d9c] transition-colors"
-                >
-                  Web Applications
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="hover:text-[#4a9d9c] transition-colors"
-                >
-                  Mobile Apps
-                </Link>
-              </li>
+              <li>Mobile Apps</li>
             </ul>
           </div>
 
@@ -115,7 +90,7 @@ const Footer = () => {
                   href="mailto:info@zeiia.com"
                   className="hover:text-[#4a9d9c] transition-colors"
                 >
-                  info@zeiia.com
+                  sales@zeiia.com
                 </a>
               </li>
               <li>
@@ -123,7 +98,7 @@ const Footer = () => {
                   href="tel:+15551234567"
                   className="hover:text-[#4a9d9c] transition-colors"
                 >
-                  +1 (555) 123-4567
+                  01207715484
                 </a>
               </li>
             </ul>

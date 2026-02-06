@@ -1053,8 +1053,8 @@ export default function Home() {
                 expectations—it exceeds them.
               </p>
               <div className="flex flex-wrap gap-5 justify-center">
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="cta-button group px-10 py-4 bg-linear-to-r from-[#4a9d9c] to-[#c4a962] rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-[#4a9d9c]/50 transition-all flex items-center gap-2 relative overflow-hidden"
                 >
                   <span className="relative z-10">Schedule Consultation</span>
@@ -1062,13 +1062,13 @@ export default function Home() {
                     →
                   </span>
                   <div className="absolute inset-0 bg-linear-to-r from-[#c4a962] to-[#4a9d9c] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </a>
-                <a
-                  href="#services"
+                </Link>
+                <Link
+                  href="/services"
                   className="cta-button px-10 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-full font-bold text-lg hover:bg-white/20 hover:border-[#4a9d9c]/50 transition-all"
                 >
                   Explore Services
-                </a>
+                </Link>
               </div>
             </div>
 
