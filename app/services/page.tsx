@@ -3,7 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/logo.png";
+import netLogo from "@/public/net.png";
+import wordpressLogo from "@/public/wordpress.png";
+import nextLogo from "@/public/next.svg";
+import reactLogo from "@/public/react.png";
+import phpLogo from "@/public/php.png";
+import nodeLogo from "@/public/node.png";
+import shopifyLogo from "@/public/shopify.png";
+import sallaLogo from "@/public/salla.png";
 
 // Import GSAP
 import gsap from "gsap";
@@ -483,18 +490,39 @@ export default function ServicesPage() {
   ];
 
   const technologies = [
-    { name: "React", icon: "⚛️" },
-    { name: "Next.js", icon: "▲" },
-    { name: "Node.js", icon: "🟢" },
-    { name: "Python", icon: "🐍" },
-    { name: "TypeScript", icon: "📘" },
-    { name: "PostgreSQL", icon: "🐘" },
-    { name: "MongoDB", icon: "🍃" },
-    { name: "AWS", icon: "☁️" },
-    { name: "Docker", icon: "🐳" },
-    { name: "Kubernetes", icon: "☸️" },
-    { name: "GraphQL", icon: "◈" },
-    { name: "Redis", icon: "🔴" },
+    {
+      name: ".NET",
+      logo: netLogo,
+    },
+    {
+      name: "Node.js",
+      logo: nodeLogo,
+    },
+    {
+      name: "Next.js",
+      logo: nextLogo,
+    },
+    {
+      name: "React.js",
+      logo: reactLogo,
+    },
+    // {
+    //   name: "TypeScript",
+    //   logo: tsLogo,
+    // },
+    {
+      name: "WordPress",
+      logo: wordpressLogo,
+    },
+    {
+      name: "Shopify",
+      logo: shopifyLogo,
+    },
+    { name: "Salla", logo: sallaLogo },
+    {
+      name: "PHP",
+      logo: phpLogo,
+    },
   ];
 
   const pricingPlans = [
@@ -664,7 +692,7 @@ export default function ServicesPage() {
                   </div>
 
                   <Link
-                    href="/#contact"
+                    href="/contact"
                     className="inline-flex items-center gap-2 mt-6 text-[#c4a962] group-hover:text-[#4a9d9c] transition-colors font-semibold"
                   >
                     <span>Learn More</span>
@@ -736,18 +764,22 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {technologies.map((tech, idx) => (
               <div
                 key={idx}
                 className="tech-item group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-[#4a9d9c]/50 transition-all cursor-pointer text-center"
               >
-                <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">
-                  {tech.icon}
+                <div className="flex items-center justify-center mb-4 h-16">
+                  <Image
+                    src={tech.logo}
+                    alt={tech.name}
+                    className="w-30 h-27 object-contain group-hover:scale-110 transition-transform "
+                  />
                 </div>
-                <div className="text-sm font-semibold text-slate-300 group-hover:text-[#4a9d9c] transition-colors">
+                {/* <div className="text-sm font-semibold text-slate-300 group-hover:text-[#4a9d9c] transition-colors">
                   {tech.name}
-                </div>
+                </div> */}
               </div>
             ))}
           </div>
@@ -755,7 +787,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Pricing Section */}
-      <section className="pricing-section relative py-16  px-6 bg-gradient-to-b from-transparent via-[#0d1420]/30 to-transparent">
+      {/* <section className="pricing-section relative py-16  px-6 bg-gradient-to-b from-transparent via-[#0d1420]/30 to-transparent">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-6xl font-black mb-6">
@@ -825,7 +857,7 @@ export default function ServicesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <section className="faq-section relative py-16  px-6">

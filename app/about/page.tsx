@@ -554,39 +554,39 @@ export default function AboutPage() {
 
   const timeline = [
     {
-      year: "2015",
+      year: "2023",
       title: "Founded",
       description:
         "Zeiia was born with a vision to transform digital experiences",
       icon: "🌟",
     },
     {
-      year: "2017",
+      year: "2023",
       title: "First Major Client",
       description:
         "Launched our first enterprise-level platform, serving 100K+ users",
       icon: "🎯",
     },
+    // {
+    //   year: "2019",
+    //   title: "Team Expansion",
+    //   description: "Grew to 15 team members and opened our New York office",
+    //   icon: "📈",
+    // },
+    // {
+    //   year: "2021",
+    //   title: "Award Recognition",
+    //   description: "Received Best Software Development Agency award",
+    //   icon: "🏆",
+    // },
     {
-      year: "2019",
-      title: "Team Expansion",
-      description: "Grew to 15 team members and opened our New York office",
-      icon: "📈",
-    },
-    {
-      year: "2021",
-      title: "Award Recognition",
-      description: "Received Best Software Development Agency award",
-      icon: "🏆",
-    },
-    {
-      year: "2023",
+      year: "2025",
       title: "Global Reach",
       description: "Expanded to London and served clients across 3 continents",
       icon: "🌍",
     },
     {
-      year: "2025",
+      year: "2026",
       title: "Innovation Leader",
       description: "Launched Aura CRM and achieved 150+ successful projects",
       icon: "🚀",
@@ -776,7 +776,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="team-section relative py-16 px-6 bg-gradient-to-b from-transparent via-[#0d1420]/30 to-transparent">
+      {/* <section className="team-section relative py-16 px-6 bg-gradient-to-b from-transparent via-[#0d1420]/30 to-transparent">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black mb-4">
@@ -799,7 +799,6 @@ export default function AboutPage() {
                 className="team-member group relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden cursor-pointer"
                 style={{ transformStyle: "preserve-3d" }}
               >
-                {/* Avatar Placeholder */}
                 <div className="relative h-64 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${member.gradient} opacity-30`}
@@ -811,7 +810,6 @@ export default function AboutPage() {
                       .join("")}
                   </div>
 
-                  {/* Overlay */}
                   <div className="team-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 transition-opacity flex items-end p-6">
                     <div className="flex gap-3">
                       <a
@@ -830,7 +828,6 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                {/* Info */}
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#4a9d9c] group-hover:to-[#c4a962] group-hover:bg-clip-text transition-all">
                     {member.name}
@@ -844,7 +841,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Timeline Section */}
       <section className="timeline-section relative py-16 px-6">
@@ -890,7 +887,7 @@ export default function AboutPage() {
       </section>
 
       {/* Awards Section */}
-      <section className="awards-section relative py-16 px-6 bg-gradient-to-b from-transparent via-[#0d1420]/30 to-transparent">
+      {/* <section className="awards-section relative py-16 px-6 bg-gradient-to-b from-transparent via-[#0d1420]/30 to-transparent">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black mb-4">
@@ -919,7 +916,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="cta-section relative py-32 px-6">

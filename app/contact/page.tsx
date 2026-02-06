@@ -9,6 +9,7 @@ import logo from "@/public/logo.png";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../components/Header";
+import Contact from "../components/Contact";
 
 export default function ContactPage() {
   const [mounted, setMounted] = useState(false);
@@ -186,55 +187,6 @@ export default function ContactPage() {
       },
     );
 
-    // Map Animation
-    ScrollTrigger.create({
-      trigger: ".map-section",
-      start: "top 75%",
-      once: true,
-      onEnter: () => {
-        gsap.fromTo(
-          ".map-container",
-          {
-            opacity: 0,
-            scale: 0.8,
-            rotationX: -45,
-          },
-          {
-            opacity: 1,
-            scale: 1,
-            rotationX: 0,
-            duration: 1.2,
-            ease: "back.out(1.7)",
-          },
-        );
-      },
-    });
-
-    // Office Locations Animation
-    ScrollTrigger.create({
-      trigger: ".offices-section",
-      start: "top 75%",
-      once: true,
-      onEnter: () => {
-        gsap.fromTo(
-          ".office-card",
-          {
-            opacity: 0,
-            y: 80,
-            scale: 0.8,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 1,
-            stagger: 0.2,
-            ease: "back.out(1.7)",
-          },
-        );
-      },
-    });
-
     // FAQ Animation
     ScrollTrigger.create({
       trigger: ".faq-section",
@@ -337,26 +289,40 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus("idle");
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setIsSubmitting(false);
-    setSubmitStatus("success");
-
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      service: "",
-      budget: "",
-      message: "",
-    });
-
-    // Reset status after 5 seconds
-    setTimeout(() => setSubmitStatus("idle"), 5000);
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          service: "",
+          budget: "",
+          message: "",
+        });
+        setTimeout(() => setSubmitStatus("idle"), 5000);
+      } else {
+        setSubmitStatus("error");
+        setTimeout(() => setSubmitStatus("idle"), 5000);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+      setTimeout(() => setSubmitStatus("idle"), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
@@ -372,55 +338,9 @@ export default function ContactPage() {
       icon: "📞",
       title: "Call Us",
       description: "Mon-Fri from 8am to 6pm",
-      contact: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
+      contact: "+20 155 558 9959",
+      link: "tel:+201555589959",
       gradient: "from-[#c4a962] to-[#d4b972]",
-    },
-    {
-      icon: "💬",
-      title: "Live Chat",
-      description: "Chat with our team",
-      contact: "Start chatting now",
-      link: "#",
-      gradient: "from-[#5ebcbb] to-[#4a9d9c]",
-    },
-    {
-      icon: "📍",
-      title: "Visit Us",
-      description: "Come say hello",
-      contact: "123 Tech Street, SF",
-      link: "#map",
-      gradient: "from-[#d4b972] to-[#c4a962]",
-    },
-  ];
-
-  const offices = [
-    {
-      city: "San Francisco",
-      country: "USA",
-      address: "123 Tech Street, Suite 500",
-      zipcode: "CA 94102",
-      phone: "+1 (555) 123-4567",
-      email: "sf@zeiia.com",
-      gradient: "from-[#4a9d9c]/20 to-[#5ebcbb]/20",
-    },
-    {
-      city: "New York",
-      country: "USA",
-      address: "456 Innovation Ave, Floor 12",
-      zipcode: "NY 10001",
-      phone: "+1 (555) 987-6543",
-      email: "ny@zeiia.com",
-      gradient: "from-[#c4a962]/20 to-[#d4b972]/20",
-    },
-    {
-      city: "London",
-      country: "UK",
-      address: "789 Digital Lane, Unit 3A",
-      zipcode: "EC1A 1BB",
-      phone: "+44 20 1234 5678",
-      email: "london@zeiia.com",
-      gradient: "from-[#5ebcbb]/20 to-[#4a9d9c]/20",
     },
   ];
 
@@ -444,6 +364,16 @@ export default function ContactPage() {
       question: "Can I schedule a meeting?",
       answer:
         "Absolutely! After submitting your inquiry, we'll reach out to schedule a convenient time for a call or in-person meeting.",
+    },
+    {
+      question: "What types of projects do you work on?",
+      answer:
+        "We work on custom software development, e-commerce platforms, CRM solutions, web applications, mobile apps, and provide long-term support and maintenance services.",
+    },
+    {
+      question: "Do you work with international clients?",
+      answer:
+        "Yes! We work with clients worldwide and have experience collaborating across different time zones to ensure smooth communication and project delivery.",
     },
   ];
 
@@ -498,7 +428,7 @@ export default function ContactPage() {
       <section className="relative py-10 px-6">
         <div className="max-w-7xl mx-auto">
           <div
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto"
             style={{ perspective: "1000px" }}
           >
             {contactMethods.map((method, idx) => (
@@ -591,295 +521,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div
-              className="form-container bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-10"
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="form-field">
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-semibold mb-2 text-slate-300"
-                  >
-                    Your Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#4a9d9c] transition-colors text-white placeholder-slate-500"
-                    placeholder="John Doe"
-                  />
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="form-field">
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-semibold mb-2 text-slate-300"
-                    >
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#4a9d9c] transition-colors text-white placeholder-slate-500"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-
-                  <div className="form-field">
-                    <label
-                      htmlFor="phone"
-                      className="block text-sm font-semibold mb-2 text-slate-300"
-                    >
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#4a9d9c] transition-colors text-white placeholder-slate-500"
-                      placeholder="+1 (555) 123-4567"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-field">
-                  <label
-                    htmlFor="company"
-                    className="block text-sm font-semibold mb-2 text-slate-300"
-                  >
-                    Company Name
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#4a9d9c] transition-colors text-white placeholder-slate-500"
-                    placeholder="Your Company"
-                  />
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="form-field">
-                    <label
-                      htmlFor="service"
-                      className="block text-sm font-semibold mb-2 text-slate-300"
-                    >
-                      Service Interested In *
-                    </label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#4a9d9c] transition-colors text-white"
-                    >
-                      <option value="" className="bg-[#0d1420]">
-                        Select a service
-                      </option>
-                      <option value="custom" className="bg-[#0d1420]">
-                        Custom Software Development
-                      </option>
-                      <option value="ecommerce" className="bg-[#0d1420]">
-                        E-Commerce Solutions
-                      </option>
-                      <option value="crm" className="bg-[#0d1420]">
-                        Aura CRM Platform
-                      </option>
-                      <option value="web" className="bg-[#0d1420]">
-                        Web Application
-                      </option>
-                      <option value="mobile" className="bg-[#0d1420]">
-                        Mobile App Development
-                      </option>
-                      <option value="maintenance" className="bg-[#0d1420]">
-                        Maintenance & Support
-                      </option>
-                    </select>
-                  </div>
-
-                  <div className="form-field">
-                    <label
-                      htmlFor="budget"
-                      className="block text-sm font-semibold mb-2 text-slate-300"
-                    >
-                      Budget Range
-                    </label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#4a9d9c] transition-colors text-white"
-                    >
-                      <option value="" className="bg-[#0d1420]">
-                        Select budget range
-                      </option>
-                      <option value="<5k" className="bg-[#0d1420]">
-                        Less than $5,000
-                      </option>
-                      <option value="5k-10k" className="bg-[#0d1420]">
-                        $5,000 - $10,000
-                      </option>
-                      <option value="10k-25k" className="bg-[#0d1420]">
-                        $10,000 - $25,000
-                      </option>
-                      <option value="25k-50k" className="bg-[#0d1420]">
-                        $25,000 - $50,000
-                      </option>
-                      <option value="50k+" className="bg-[#0d1420]">
-                        $50,000+
-                      </option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="form-field">
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-semibold mb-2 text-slate-300"
-                  >
-                    Project Details *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#4a9d9c] transition-colors text-white placeholder-slate-500 resize-none"
-                    placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="form-field w-full py-4 bg-gradient-to-r from-[#4a9d9c] to-[#c4a962] rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-[#4a9d9c]/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
-                >
-                  <span className="relative z-10">
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#c4a962] to-[#4a9d9c] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </button>
-
-                {submitStatus === "success" && (
-                  <div className="form-field bg-green-500/20 border border-green-500/50 rounded-xl p-4 text-center">
-                    <p className="text-green-400 font-semibold">
-                      ✓ Message sent successfully! We'll be in touch soon.
-                    </p>
-                  </div>
-                )}
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Office Locations */}
-      <section className="offices-section relative py-16 px-6 bg-gradient-to-b from-transparent via-[#0d1420]/30 to-transparent">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-4">
-              <span className="bg-gradient-to-r from-[#4a9d9c] via-white to-[#c4a962] bg-clip-text text-transparent">
-                Our Offices
-              </span>
-            </h2>
-            <p className="text-xl text-slate-400">
-              Visit us at one of our locations worldwide
-            </p>
-          </div>
-
-          <div
-            className="grid md:grid-cols-3 gap-8"
-            style={{ perspective: "1000px" }}
-          >
-            {offices.map((office, idx) => (
-              <div
-                key={idx}
-                className="office-card group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:border-[#4a9d9c]/50 transition-all"
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${office.gradient} opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl`}
-                />
-
-                <div className="relative z-10">
-                  <div className="text-4xl mb-4">🏢</div>
-                  <h3 className="text-2xl font-bold mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#4a9d9c] group-hover:to-[#c4a962] group-hover:bg-clip-text transition-all">
-                    {office.city}
-                  </h3>
-                  <p className="text-slate-400 text-sm mb-6">
-                    {office.country}
-                  </p>
-
-                  <div className="space-y-3 text-sm">
-                    <div className="flex items-start gap-3">
-                      <span className="text-[#4a9d9c]">📍</span>
-                      <div>
-                        <div className="text-slate-300">{office.address}</div>
-                        <div className="text-slate-400">{office.zipcode}</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-[#4a9d9c]">📞</span>
-                      <a
-                        href={`tel:${office.phone.replace(/\s/g, "")}`}
-                        className="text-slate-300 hover:text-[#4a9d9c] transition-colors"
-                      >
-                        {office.phone}
-                      </a>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-[#4a9d9c]">📧</span>
-                      <a
-                        href={`mailto:${office.email}`}
-                        className="text-slate-300 hover:text-[#4a9d9c] transition-colors"
-                      >
-                        {office.email}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section id="map" className="map-section relative py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div
-            className="map-container bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden"
-            style={{ transformStyle: "preserve-3d", height: "500px" }}
-          >
-            <div className="w-full h-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-6xl mb-4">🗺️</div>
-                <p className="text-slate-400 text-lg">
-                  Interactive map coming soon
-                </p>
-                <p className="text-slate-500 text-sm mt-2">
-                  San Francisco • New York • London
-                </p>
-              </div>
-            </div>
+            <Contact isContactVisible={false} />
           </div>
         </div>
       </section>

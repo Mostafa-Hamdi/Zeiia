@@ -19,6 +19,7 @@ import ecoMarketingScreen from "@/public/ecoMarketingScreen.png";
 import saqrScreen from "@/public/saqrScreen.jpg";
 import Marquee from "react-fast-marquee";
 import Link from "next/link";
+import Contact from "./components/Contact";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -1032,142 +1033,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section
-        id="contact"
-        className="contact-section relative py-32 px-6 bg-linear-to-b from-[#0a0f1a] via-[#0d1420]/30 to-[#0a0f1a]"
-      >
-        <div className="max-w-5xl mx-auto">
-          <div className="contact-header text-center mb-16">
-            <h2 className="text-5xl md:text-7xl font-black mb-6">
-              <span className="bg-linear-to-r from-[#c4a962] via-white to-[#4a9d9c] bg-clip-text text-transparent">
-                Get In Touch
-              </span>
-            </h2>
-            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-              Ready to transform your vision into reality? Let's start the
-              conversation.
-            </p>
-          </div>
-
-          <div className="contact-form bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-12">
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="form-field">
-                  <label className="block text-sm font-semibold text-slate-300 mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:border-[#4a9d9c] focus:outline-none focus:ring-2 focus:ring-[#4a9d9c]/50 transition-all"
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div className="form-field">
-                  <label className="block text-sm font-semibold text-slate-300 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:border-[#4a9d9c] focus:outline-none focus:ring-2 focus:ring-[#4a9d9c]/50 transition-all"
-                    placeholder="john@example.com"
-                  />
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="form-field">
-                  <label className="block text-sm font-semibold text-slate-300 mb-2">
-                    Company Name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:border-[#4a9d9c] focus:outline-none focus:ring-2 focus:ring-[#4a9d9c]/50 transition-all"
-                    placeholder="Your Company"
-                  />
-                </div>
-                <div className="form-field">
-                  <label className="block text-sm font-semibold text-slate-300 mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:border-[#4a9d9c] focus:outline-none focus:ring-2 focus:ring-[#4a9d9c]/50 transition-all"
-                    placeholder="+1 (555) 000-0000"
-                  />
-                </div>
-              </div>
-
-              <div className="form-field">
-                <label className="block text-sm font-semibold text-slate-300 mb-2">
-                  Service Interested In
-                </label>
-                <select className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-[#4a9d9c] focus:outline-none focus:ring-2 focus:ring-[#4a9d9c]/50 transition-all">
-                  <option value="">Select a service</option>
-                  <option value="custom">Custom Software Development</option>
-                  <option value="ecommerce">E-Commerce Solutions</option>
-                  <option value="crm">Aura CRM</option>
-                  <option value="web">Web Applications</option>
-                  <option value="support">Support & Maintenance</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div className="form-field">
-                <label className="block text-sm font-semibold text-slate-300 mb-2">
-                  Project Details
-                </label>
-                <textarea
-                  rows={6}
-                  className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:border-[#4a9d9c] focus:outline-none focus:ring-2 focus:ring-[#4a9d9c]/50 transition-all resize-none"
-                  placeholder="Tell us about your project..."
-                />
-              </div>
-
-              <div className="form-field">
-                <button
-                  type="submit"
-                  className="w-full px-10 py-4 bg-linear-to-r from-[#4a9d9c] to-[#c4a9d9c] rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-[#4a9d9c]/50 transition-all hover:scale-[1.02] relative overflow-hidden group"
-                >
-                  <span className="relative z-10">Send Message</span>
-                  <div className="absolute inset-0 bg-linear-to-r from-[#c4a962] to-[#4a9d9c] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </button>
-              </div>
-            </form>
-
-            <div className="mt-12 pt-12 border-t border-white/10">
-              <div className="grid md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <div className="text-3xl mb-3">📧</div>
-                  <div className="text-sm text-slate-500 mb-1">Email Us</div>
-                  <a
-                    href="mailto:info@zeiia.com"
-                    className="text-[#4a9d9c] hover:text-[#c4a962] transition-colors"
-                  >
-                    info@zeiia.com
-                  </a>
-                </div>
-                <div>
-                  <div className="text-3xl mb-3">📱</div>
-                  <div className="text-sm text-slate-500 mb-1">Call Us</div>
-                  <a
-                    href="tel:+15551234567"
-                    className="text-[#4a9d9c] hover:text-[#c4a962] transition-colors"
-                  >
-                    +1 (555) 123-4567
-                  </a>
-                </div>
-                <div>
-                  <div className="text-3xl mb-3">💬</div>
-                  <div className="text-sm text-slate-500 mb-1">Live Chat</div>
-                  <button className="text-[#4a9d9c] hover:text-[#c4a962] transition-colors">
-                    Start Chat
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Contact isContactVisible={true} />
 
       {/* CTA Section */}
       <section className="cta-section relative py-32 px-6">

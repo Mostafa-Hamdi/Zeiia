@@ -10,6 +10,14 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../components/Header";
 
+// Import portfolio images
+import kreazScreen from "@/public/kreaz-screen.jpg";
+import auraScreen from "@/public/auraScreen.png";
+import asiaScreen from "@/public/asiaScreen.png";
+import tavanScreen from "@/public/tavanScreen.png";
+import ecoMarketingScreen from "@/public/ecoMarketingScreen.png";
+import saqrScreen from "@/public/saqrScreen.jpg";
+
 export default function PortfolioPage() {
   const [mounted, setMounted] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -325,7 +333,6 @@ export default function PortfolioPage() {
   const categories = [
     { id: "all", name: "All Projects" },
     { id: "web", name: "Web Apps" },
-    { id: "mobile", name: "Mobile Apps" },
     { id: "ecommerce", name: "E-Commerce" },
     { id: "crm", name: "CRM Solutions" },
     { id: "custom", name: "Custom Software" },
@@ -334,136 +341,106 @@ export default function PortfolioPage() {
   const projects = [
     {
       id: 1,
-      title: "Aura CRM Platform",
-      category: "crm",
+      title: "Kreaz E-Commerce Platform",
+      category: "ecommerce",
       description:
-        "Comprehensive customer relationship management system with advanced analytics and automation capabilities.",
-      image: "/portfolio/aura-crm.jpg",
-      tags: ["React", "Node.js", "PostgreSQL", "AWS"],
+        "Kreaz Store specializes in premium cakes, gateaux, baked goods, oriental sweets, fine chocolates, and handcrafted beverages.",
+      image: kreazScreen,
+      tags: ["WooCommerce", "Custom Dev", "WordPress", "Payment Integration"],
       gradient: "from-[#4a9d9c] to-[#5ebcbb]",
-      stats: { users: "10K+", satisfaction: "98%", uptime: "99.9%" },
-      year: "2025",
+      stats: { orders: "5K+", satisfaction: "98%", uptime: "99.9%" },
+      year: "2024",
+      link: "https://kreazdesserts.com/",
     },
     {
       id: 2,
-      title: "LuxeStore E-Commerce",
-      category: "ecommerce",
+      title: "Aura CRM System",
+      category: "crm",
       description:
-        "High-end fashion e-commerce platform with AI-powered recommendations and seamless checkout experience.",
-      image: "/portfolio/luxestore.jpg",
-      tags: ["Shopify", "React", "Stripe", "AI/ML"],
+        "Our proprietary CRM platform designed for seamless customer management and growth with advanced analytics and automation.",
+      image: auraScreen,
+      tags: ["Next.js", ".NET Core", "PostgreSQL", "Real-time"],
       gradient: "from-[#c4a962] to-[#d4b972]",
-      stats: { revenue: "$2M+", conversion: "4.2%", customers: "25K+" },
-      year: "2025",
+      stats: { users: "10K+", satisfaction: "97%", features: "100+" },
+      year: "2024",
+      link: "https://auracrm-pi.vercel.app",
     },
     {
       id: 3,
-      title: "HealthTrack Mobile",
-      category: "mobile",
+      title: "Asia Healthcare Store",
+      category: "ecommerce",
       description:
-        "Cross-platform health and fitness tracking app with real-time sync and personalized workout plans.",
-      image: "/portfolio/healthtrack.jpg",
-      tags: ["React Native", "Firebase", "HealthKit"],
+        "Asia Healthcare is a leading online retailer of health and wellness products, committed to providing quality solutions for a healthier lifestyle.",
+      image: asiaScreen,
+      tags: ["WooCommerce", "Custom Dev", "SEO", "Analytics"],
       gradient: "from-[#4a9d9c] to-[#c4a962]",
-      stats: { downloads: "50K+", rating: "4.8★", retention: "85%" },
+      stats: { products: "1K+", customers: "15K+", rating: "4.8★" },
       year: "2024",
+      link: "https://asiaegy.com/",
     },
     {
       id: 4,
-      title: "FinanceHub Dashboard",
-      category: "web",
+      title: "Tavan Gallery",
+      category: "ecommerce",
       description:
-        "Real-time financial analytics dashboard for investment firms with advanced charting and reporting.",
-      image: "/portfolio/financehub.jpg",
-      tags: ["Next.js", "D3.js", "Python", "Redis"],
+        "Tavan Gallery is a premier online destination for exquisite art pieces, offering a curated selection of contemporary and classic artworks.",
+      image: tavanScreen,
+      tags: ["Shopify", "Custom Dev", "Multi-language", "Payments"],
       gradient: "from-[#5ebcbb] to-[#4a9d9c]",
-      stats: { dataPoints: "1M+/day", latency: "<100ms", clients: "50+" },
-      year: "2024",
+      stats: { artworks: "500+", sales: "$200K+", countries: "25+" },
+      year: "2023",
+      link: "https://tavangallery.com/en",
     },
     {
       id: 5,
-      title: "EduConnect Platform",
+      title: "EcoMarketing Platform",
       category: "web",
       description:
-        "Online learning management system connecting students with educators through interactive virtual classrooms.",
-      image: "/portfolio/educonnect.jpg",
-      tags: ["React", "WebRTC", "MongoDB", "AWS"],
+        "A high-conversion marketing platform blending custom development with WordPress for peak performance and scalability.",
+      image: ecoMarketingScreen,
+      tags: ["WordPress", "Custom Dev", "SEO", "Analytics"],
       gradient: "from-[#d4b972] to-[#c4a962]",
-      stats: { students: "100K+", courses: "5K+", completion: "92%" },
-      year: "2024",
+      stats: { leads: "50K+", conversion: "12%", campaigns: "200+" },
+      year: "2023",
+      link: "https://ecoperformancemarketing.com/",
     },
     {
       id: 6,
-      title: "LogiTrack System",
-      category: "custom",
-      description:
-        "Enterprise logistics and supply chain management system with real-time tracking and route optimization.",
-      image: "/portfolio/logitrack.jpg",
-      tags: ["Python", "Django", "PostgreSQL", "Docker"],
-      gradient: "from-[#4a9d9c]/80 to-[#c4a962]/80",
-      stats: { shipments: "500K+", efficiency: "+35%", warehouses: "200+" },
-      year: "2024",
-    },
-    {
-      id: 7,
-      title: "SocialBuzz App",
-      category: "mobile",
-      description:
-        "Social networking mobile app with video sharing, live streaming, and AI-powered content moderation.",
-      image: "/portfolio/socialbuzz.jpg",
-      tags: ["Flutter", "Firebase", "TensorFlow", "GCP"],
-      gradient: "from-[#c4a962] to-[#4a9d9c]",
-      stats: { users: "200K+", engagement: "45min/day", posts: "1M+" },
-      year: "2023",
-    },
-    {
-      id: 8,
-      title: "RestaurantPro POS",
-      category: "custom",
-      description:
-        "Point-of-sale system for restaurants with inventory management, table reservations, and kitchen display.",
-      image: "/portfolio/restaurantpro.jpg",
-      tags: ["React", "Node.js", "MySQL", "Electron"],
-      gradient: "from-[#5ebcbb] to-[#d4b972]",
-      stats: { restaurants: "500+", orders: "2M+", speed: "30% faster" },
-      year: "2023",
-    },
-    {
-      id: 9,
-      title: "TravelMate Booking",
+      title: "Saqr Sahraan E-Commerce",
       category: "ecommerce",
       description:
-        "Travel booking platform with flight, hotel, and car rental aggregation from multiple providers.",
-      image: "/portfolio/travelmate.jpg",
-      tags: ["Next.js", "GraphQL", "Stripe", "AWS"],
-      gradient: "from-[#4a9d9c] to-[#d4b972]",
-      stats: { bookings: "100K+", destinations: "500+", savings: "25% avg" },
+        "WordPress-based e-commerce platform for premium outdoor and camping gear in the Middle East, serving outdoor enthusiasts.",
+      image: saqrScreen,
+      tags: ["WordPress", "WooCommerce", "Payment Gateway", "Inventory"],
+      gradient: "from-[#4a9d9c]/80 to-[#c4a962]/80",
+      stats: { products: "800+", orders: "8K+", revenue: "$500K+" },
       year: "2023",
+      link: "https://www.d-falcon.com/",
     },
   ];
 
   const testimonials = [
     {
-      name: "Sarah Chen",
-      role: "CEO, TechVision Inc.",
-      company: "TechVision",
-      text: "Zeiia transformed our vision into reality. Their Aura CRM platform has increased our productivity by 40% and our team absolutely loves it.",
+      name: "Ahmed Hassan",
+      role: "Founder & CEO",
+      company: "Kreaz Desserts",
+      text: "Working with Zeiia was transformative for our business. They built a beautiful, high-performing e-commerce platform that perfectly captures our brand essence. Our online sales increased by 250% within the first three months!",
       rating: 5,
       gradient: "from-[#4a9d9c]/20 to-[#5ebcbb]/20",
     },
     {
-      name: "Michael Rodriguez",
-      role: "Founder, LuxeStore",
-      company: "LuxeStore",
-      text: "The e-commerce platform they built exceeded all expectations. Our conversion rate doubled within the first month of launch.",
+      name: "Dr. Mona Khalil",
+      role: "Managing Director",
+      company: "Asia Healthcare",
+      text: "The team at Zeiia delivered beyond our expectations. Their expertise in e-commerce and attention to detail resulted in a platform that our customers love. The seamless integration and robust performance have been game-changing for our business.",
       rating: 5,
       gradient: "from-[#c4a962]/20 to-[#d4b972]/20",
     },
     {
-      name: "Emily Watson",
-      role: "CTO, FinanceHub",
-      company: "FinanceHub",
-      text: "Outstanding technical expertise and project management. They delivered a complex financial dashboard ahead of schedule and under budget.",
+      name: "Rania Tavan",
+      role: "Gallery Director",
+      company: "Tavan Gallery",
+      text: "Zeiia understood our vision for showcasing fine art online. They created an elegant, sophisticated platform that does justice to our collection. The multi-language support and smooth checkout experience have helped us reach international collectors effortlessly.",
       rating: 5,
       gradient: "from-[#4a9d9c]/20 to-[#c4a962]/20",
     },
@@ -471,19 +448,19 @@ export default function PortfolioPage() {
 
   const stats = [
     {
-      number: "150+",
+      number: "50+",
       label: "Projects Completed",
       icon: "🚀",
       gradient: "from-[#4a9d9c] to-[#5ebcbb]",
     },
     {
-      number: "95%",
-      label: "Client Satisfaction",
+      number: "99.9%",
+      label: "Uptime Guarantee",
       icon: "⭐",
       gradient: "from-[#c4a962] to-[#d4b972]",
     },
     {
-      number: "50+",
+      number: "40+",
       label: "Active Clients",
       icon: "🤝",
       gradient: "from-[#5ebcbb] to-[#4a9d9c]",
@@ -605,73 +582,54 @@ export default function PortfolioPage() {
             style={{ perspective: "1000px" }}
           >
             {filteredProjects.map((project) => (
-              <div
+              <Link
                 key={project.id}
-                className="portfolio-card group relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden cursor-pointer"
+                href={project.link}
+                target="_blank"
+                className="portfolio-card flex flex-col group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden cursor-pointer"
                 style={{ transformStyle: "preserve-3d" }}
-                onClick={() => setSelectedProject(project.id)}
               >
-                {/* Project Image Placeholder */}
-                <div className="relative h-64 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center overflow-hidden">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-30`}
-                  />
-                  <div className="text-6xl opacity-50">{project.tags[0]}</div>
+                {/* Project Image */}
+                <div className="relative h-64 overflow-hidden rounded-t-2xl">
+                  <div className="portfolio-image h-full w-full">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
 
                   {/* Overlay */}
-                  <div className="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 transition-opacity flex items-end p-6">
-                    <div className="text-sm font-bold text-white">
-                      View Project →
+                  <div className="portfolio-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 transition-opacity flex items-end justify-center pb-6">
+                    <div className="flex items-center gap-2 text-white font-bold">
+                      <span className="text-sm">View Case Study</span>
+                      <span className="group-hover:translate-x-2 transition-transform">
+                        →
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 {/* Project Info */}
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-bold text-[#c4a962]">
-                      {project.year}
-                    </span>
-                    <span className="text-xs px-3 py-1 bg-white/10 rounded-full">
-                      {categories.find((c) => c.id === project.category)?.name}
-                    </span>
+                <div className="relative p-8 flex flex-col flex-1">
+                  <div className="text-xs text-[#4a9d9c] uppercase tracking-widest font-bold mb-3">
+                    {project.tags[0]}
                   </div>
-
                   <h3 className="text-2xl font-bold mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#4a9d9c] group-hover:to-[#c4a962] group-hover:bg-clip-text transition-all">
                     {project.title}
                   </h3>
-
-                  <p className="text-slate-400 leading-relaxed mb-6 line-clamp-3">
+                  <p className="text-slate-400 mb-6 leading-relaxed flex-1">
                     {project.description}
                   </p>
-
-                  {/* Stats */}
-                  <div className="grid grid-cols-3 gap-3 mb-6 pb-6 border-b border-white/10">
-                    {Object.entries(project.stats).map(([key, value]) => (
-                      <div key={key} className="text-center">
-                        <div className="text-sm font-black text-[#4a9d9c]">
-                          {value}
-                        </div>
-                        <div className="text-xs text-slate-500 capitalize">
-                          {key}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs px-3 py-1 bg-white/5 rounded-full text-slate-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  <div className="flex items-center gap-2 text-[#c4a962] group-hover:text-[#4a9d9c] transition-all">
+                    <span className="text-sm font-bold">View Case Study</span>
+                    <span className="group-hover:translate-x-2 transition-transform">
+                      →
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -721,15 +679,15 @@ export default function PortfolioPage() {
                   </p>
 
                   {/* Author */}
-                  <div className="flex items-center gap-4 pt-6 border-t border-white/10">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#4a9d9c] to-[#c4a962] flex items-center justify-center text-2xl font-bold">
-                      {testimonial.name[0]}
+                  <div className="pt-6 border-t border-white/10">
+                    <div className="font-bold text-lg mb-1">
+                      {testimonial.name}
                     </div>
-                    <div>
-                      <div className="font-bold">{testimonial.name}</div>
-                      <div className="text-sm text-slate-400">
-                        {testimonial.role}
-                      </div>
+                    <div className="text-sm text-slate-400 mb-1">
+                      {testimonial.role}
+                    </div>
+                    <div className="text-sm text-[#4a9d9c] font-semibold">
+                      {testimonial.company}
                     </div>
                   </div>
                 </div>
@@ -758,7 +716,7 @@ export default function PortfolioPage() {
               </p>
               <div className="flex flex-wrap gap-5 justify-center">
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   className="cta-button group px-10 py-4 bg-gradient-to-r from-[#4a9d9c] to-[#c4a962] rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-[#4a9d9c]/50 transition-all flex items-center gap-2 relative overflow-hidden"
                 >
                   <span className="relative z-10">Start Your Project</span>
